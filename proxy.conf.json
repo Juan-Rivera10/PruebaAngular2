@@ -1,0 +1,8 @@
+{
+    "/apidata/*": {
+        "target": "https://datos.gob.es/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

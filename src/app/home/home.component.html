@@ -1,0 +1,35 @@
+<p-panel header="Lista de items">
+    <div class="card">
+
+        <p-table [value]="users" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>About</th>
+                    <th>AccessUrl</th>
+                    <th>Title</th>
+                    <th>Eliminar</th>
+                    <th>Editar</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item let-i="rowIndex">
+                <tr>
+                    <td>{{item._about}}</td>
+                    <td>{{item.accessURL}}</td>
+                    <td>{{item.title}}</td>
+                    <td>
+                        <p-button type="button" styleClass="p-button-text" (click)="eliminar(i)">Eliminar</p-button>
+                    </td>
+                    <td>
+                        <p-button type="button" styleClass="p-button-text" [routerLink]="['/editar', i]">Editar</p-button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorleft">
+                <p-button type="button" icon="pi pi-plus" styleClass="p-button-text" routerLink="/nuevo"></p-button>
+            </ng-template>
+            <ng-template pTemplate="paginatorright">
+                <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-table>
+    </div>
+</p-panel>
